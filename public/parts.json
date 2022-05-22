@@ -4,8 +4,8 @@
       "picture": "https://i.ibb.co/Yt1pQCc/display.jpg",
       "price": 7500,
       "name": "LCD Original Display",
-      "minimum-quantity": 75,
-      "available-quantity": 125,
+      "minimumQuantity": 75,
+      "availableQuantity": 125,
       "description": "Original iPhone XR LCD display import from china"
     },
     {
@@ -13,8 +13,8 @@
       "picture": "https://i.ibb.co/DD6YpYj/Camera-Glass.png",
       "price": 3000,
       "name": "Camera Glass",
-      "minimum-quantity": 75,
-      "available-quantity": 375,
+      "minimumQuantity": 75,
+      "availableQuantity": 375,
       "description": "No. 1 Camera glass for protect your camera"
     },
     {
@@ -22,8 +22,8 @@
       "picture": "https://i.ibb.co/HGNQqky/Dock-connector.jpg",
       "price": 4880,
       "name": "Dock Connector",
-      "minimum-quantity": 75,
-      "available-quantity": 275,
+      "minimumQuantity": 75,
+      "availableQuantity": 275,
       "description": "Replace your dock connector with original one"
     },
     {
@@ -31,8 +31,8 @@
       "picture": "https://i.ibb.co/BCVxCFL/Rear-Camera.jpg",
       "price": 9000,
       "name": "Rear Camera",
-      "minimum-quantity": 75,
-      "available-quantity": 750,
+      "minimumQuantity": 75,
+      "availableQuantity": 750,
       "description": "Original rear camera import from CA"
     },
     {
@@ -40,8 +40,8 @@
       "picture": "https://i.ibb.co/kJhNWdG/Screen-Adhesive.jpg",
       "price": 690,
       "name": "Screen Adhesive",
-      "minimum-quantity": 75,
-      "available-quantity": 175,
+      "minimumQuantity": 75,
+      "availableQuantity": 175,
       "description": "Best and stable master copy screen adhesive"
     },
     {
@@ -49,8 +49,8 @@
       "picture": "https://i.ibb.co/dc6W3xY/Speaker.jpg",
       "price": 6500,
       "name": "Original Speaker",
-      "minimum-quantity": 75,
-      "available-quantity": 150,
+      "minimumQuantity": 75,
+      "availableQuantity": 150,
       "description": "Feel every Beat with original speaker"
     }
   ]

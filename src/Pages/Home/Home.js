@@ -6,8 +6,7 @@ import Reviews from './Reviews'
 
 const Home = () => {
     return (
-        <div>
-            <h2 className="text-2xl">Welcome to Home</h2>
+        <div className='container mx-auto'>
             <Banner />
             <Parts />
             <Summary />

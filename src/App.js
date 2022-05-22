@@ -6,7 +6,7 @@ import Navbar from "./Pages/Shared/Navbar";
 
 function App() {
   return (
-    <div className="container mx-auto">
+    <div className="">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
