@@ -21,9 +21,9 @@ const Part = ({ part }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>{description}</p>
-        <p>Price: {price}</p>
-        <p> Minimum Order: {minimumQuantity}</p>
-        <p>Available Quantity: {availableQuantity}</p>
+        <p><span className="font-semibold">Price:</span> {price}</p>
+        <p><span className="font-semibold">Minimum Order:</span> {minimumQuantity}</p>
+        <p><span className="font-semibold">Available Quantity:</span> {availableQuantity}</p>
         <div className="card-actions justify-end">
           <button className="btn btn-sm btn-primary">Purchase</button>
         </div>

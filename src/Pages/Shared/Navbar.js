@@ -49,7 +49,7 @@ const Navbar = () => {
            {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case font-extrabold text-3xl">
           iParts
         </Link>
       </div>

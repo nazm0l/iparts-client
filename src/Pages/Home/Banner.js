@@ -12,10 +12,10 @@ const Banner = () => {
         />
         <div>
           <h1 className="text-5xl font-bold">Your New <span className='text-secondary'>Mobile Parts</span> Partner</h1>
-          <p className="py-6">
+          <p className="py-6 font-semibold">
           You can find any types of iPhone parts in our shop. Any model of iPhone you can find all original and master copy parts.
           </p>
-          <button className='btn btn-primary'>Buy Now</button>
+          <button className='btn btn-primary'>Purchase Now</button>
         </div>
       </div>
     </div>
