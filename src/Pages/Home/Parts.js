@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import useParts from '../../hooks/useParts';
 import Part from './Part';
 
 const Parts = () => {
 
-    const [parts, setParts] = useState([]);
-
-    useEffect(()=>{
-        fetch('parts.json')
-        .then(res => res.json())
-        .then(data => setParts(data))
-    },[])
+    const [parts] = useParts();
 
     return (
         <div className='bg-gray-100 py-5 px-5 rounded-lg'>
