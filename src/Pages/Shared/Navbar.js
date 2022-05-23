@@ -26,6 +26,9 @@ const Navbar = () => {
      <Link to="/contact">CONTACT US</Link>
    </li>
    <li>
+     <Link to="/blogs">BLOGS</Link>
+   </li>
+   <li>
      {
        user? <>
        <button onClick={logout} className='btn btn-link font-bold text-secondary no-underline'> <span className='uppercase text-primary'>{user.displayName}</span> SIGNOUT</button>

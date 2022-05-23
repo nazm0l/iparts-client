@@ -1,9 +1,14 @@
 import useParts from '../../hooks/useParts';
+import Loading from '../Shared/Loading';
 import Part from './Part';
 
 const Parts = () => {
 
     const [parts] = useParts();
+
+    if (parts.length === 0) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className='bg-gray-100 py-5 px-5 rounded-lg'>

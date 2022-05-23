@@ -1,9 +1,14 @@
 import React from "react";
 import useParts from "../../hooks/useParts";
+import Loading from "../Shared/Loading";
 import Product from "./Product";
 
 const Products = () => {
   const [parts] = useParts();
+
+  if (parts.length === 0) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="my-10">
