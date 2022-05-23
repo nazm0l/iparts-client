@@ -1,49 +1,74 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init'
 import Loading from '../Shared/Loading';
 
-const Login = () => {
+const Register = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
-
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, uError] = useUpdateProfile(auth);
     const navigate = useNavigate()
-    const location = useLocation()
-    let from = location.state?.from?.pathname || "/";
+
     let signInError;
 
-    if (loading || gLoading) {
+    if (loading || gLoading || updating) {
         return <Loading></Loading>
     }
 
-    if (error || gError) {
+    if (error || gError || uError) {
         signInError = <p className='text-red-600'><small>{error?.message || gError.message}</small></p>
     }
 
     if (user || gUser) {
-        navigate(from, { replace: true });
+        console.log(user || gUser);
     }
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
+    const onSubmit = async data => {
+        
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name });
+        navigate('/')
     }
-
     return (
         <div style={{
             background: `url()`
         }} className='flex justify-center items-center bg-gray-200  h-screen'>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <div className="card-body bg-slate-300">
-                    <h2 className="text-center text-2xl font-bold">Log In</h2>
+                    <h2 className="text-center text-2xl font-bold">Sign Up</h2>
 
                     <form onSubmit={handleSubmit(onSubmit)}>
+
+
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text font-bold">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your Name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("name", {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is Required'
+                                    }
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' &&
+                                    <span className="label-text-alt text-red-700">{errors.name.message}</span>}
+                            </label>
+                        </div>
+
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
@@ -71,6 +96,8 @@ const Login = () => {
 
                             </label>
                         </div>
+
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
@@ -98,10 +125,9 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-secondary' value='Log In' type="submit" />
+                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-secondary' value='Sign Up' type="submit" />
                     </form>
-                    <p className='text-gray-600'>New to iParts? <Link className='text-cyan-600 font-semibold' to="/register"> Create Account</Link></p>
-                    <p className='text-gray-600'>Forgot Password? <Link className='text-cyan-600 font-semibold' to="/reset">Reset Password</Link></p>
+                    <p className='text-gray-600'>Already Have an Account? <Link className='text-cyan-600 font-semibold' to="/login"> Log In</Link></p>
                     {signInError}
                     <div className="divider">OR</div>
 
@@ -113,4 +139,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
