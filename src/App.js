@@ -12,6 +12,11 @@ import NotFound from "./Pages/Shared/NotFound";
 import RequireAuth from "./Pages/Login/RequireAuth";
 import Footer from "./Pages/Shared/Footer";
 import SinglePart from "./Pages/Shop/SinglePart";
+import MyOrder from "./Pages/Dashboard/MyOrder";
+import AddReview from "./Pages/Dashboard/AddReview";
+import MyProfile from "./Pages/Dashboard/MyProfile";
+import AddParts from "./Pages/Dashboard/AddParts";
+import AllOrders from "./Pages/Dashboard/AllOrders";
 
 function App() {
   return (
@@ -23,7 +28,13 @@ function App() {
         <Route path="shop/:id" element={<RequireAuth><SinglePart /></RequireAuth>} />
         <Route path="blogs" element={<Blogs />} />
         <Route path="about" element={<About />} />
-        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
+          <Route index element={<AllOrders />}></Route>
+          <Route path="myorder" element={<MyOrder />}></Route>
+          <Route path="addreview" element={<AddReview />}></Route>
+          <Route path="profile" element={<MyProfile />}></Route>
+          <Route path="addparts" element={<AddParts />}></Route>
+        </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

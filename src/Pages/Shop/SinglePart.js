@@ -58,6 +58,7 @@ const SinglePart = () => {
   return (
     <div className="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-10 my-20">
       <div>
+          <h2 className="text-2xl text-center mb-5">Product Details</h2>
         <div className="card lg:card-side bg-base-100 shadow-xl">
           <figure>
             <img src={part.picture} alt="parts" />
@@ -80,7 +81,7 @@ const SinglePart = () => {
         </div>
       </div>
       <div className="mx-auto">
-        <h2 className="text-2xl text-center">Order Details</h2>
+        <h2 className="text-2xl text-center mb-5">Order Details</h2>
         <div className="">
           <form onSubmit={handlePurchase}>
             <div className="form-control w-full max-w-xs">
