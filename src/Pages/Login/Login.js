@@ -98,7 +98,7 @@ const Login = () => {
 
                             </label>
                         </div>
-                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-secondary' value='Log In' type="submit" />
+                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-primary' value='Log In' type="submit" />
                     </form>
                     <p className='text-gray-600'>New to iParts? <Link className='text-cyan-600 font-semibold' to="/register"> Create Account</Link></p>
                     <p className='text-gray-600'>Forgot Password? <Link className='text-cyan-600 font-semibold' to="/reset">Reset Password</Link></p>
@@ -106,7 +106,7 @@ const Login = () => {
                     <div className="divider">OR</div>
 
                     <button onClick={() => signInWithGoogle()}
-                        className="btn btn-outline bg-secondary text-white font-bold">Continue with Google</button>
+                        className="btn btn-outline bg-primary text-white font-bold">Continue with Google</button>
                 </div>
             </div>
         </div>

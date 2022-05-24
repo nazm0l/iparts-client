@@ -28,7 +28,7 @@ const Register = () => {
     }
 
     if (user || gUser) {
-        console.log(user || gUser);
+        navigate('/')
     }
     const onSubmit = async data => {
         
@@ -125,14 +125,14 @@ const Register = () => {
 
                             </label>
                         </div>
-                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-secondary' value='Sign Up' type="submit" />
+                        <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-primary' value='Sign Up' type="submit" />
                     </form>
                     <p className='text-gray-600'>Already Have an Account? <Link className='text-cyan-600 font-semibold' to="/login"> Log In</Link></p>
                     {signInError}
                     <div className="divider">OR</div>
 
                     <button onClick={() => signInWithGoogle()}
-                        className="btn btn-outline bg-secondary text-white font-bold">Continue with Google</button>
+                        className="btn btn-outline bg-primary text-white font-bold">Continue with Google</button>
                 </div>
             </div>
         </div>
