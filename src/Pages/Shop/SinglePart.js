@@ -14,34 +14,46 @@ const SinglePart = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));
-  }, [id]);
+  }, [id, part]);
 
-  const handlePurchase =(e) =>{
-      e.preventDefault();
-      const address = e.target.address.value;
-      const number = e.target.number.value;
-      const quantity = e.target.quantity.value;
+  const handlePurchase = (e) => {
+    e.preventDefault();
+    const address = e.target.address.value;
+    const number = e.target.number.value;
+    const quantity = e.target.quantity.value;
 
-      const data ={
-          name: user.displayName,
-          email: user.email,
-          address: address,
-          number: number,
-          quantity: quantity
-      }
-      
-      fetch('http://localhost:5000/orders', {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      })
-        .then((res) => res.json())
-        .then((result) => console.log(result));
+    const data = {
+      name: user.displayName,
+      email: user.email,
+      productName: part.name,
+      address: address,
+      number: number,
+      quantity: quantity,
+    };
 
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
     e.target.reset();
-  }
+
+    const updateQuantity = parseInt(part.availableQuantity) - parseInt(quantity);
+    const url = `http://localhost:5000/parts/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ updateQuantity }),
+    })
+      .then((res) => res.json())
+      .then((result) => {});
+  };
 
   return (
     <div className="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-10 my-20">
@@ -71,66 +83,70 @@ const SinglePart = () => {
         <h2 className="text-2xl text-center">Order Details</h2>
         <div className="">
           <form onSubmit={handlePurchase}>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Name</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Name</span>
               </label>
               <input
                 type="text"
                 placeholder="Name"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={user?.displayName}
                 disabled
               />
             </div>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Email</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Email</span>
               </label>
               <input
                 type="email"
                 placeholder="Email"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 value={user?.email}
                 disabled
               />
             </div>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Address</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Address</span>
               </label>
               <input
                 type="text"
                 placeholder="Address"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 name="address"
               />
             </div>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Phone Number</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Phone Number</span>
               </label>
               <input
                 type="number"
                 placeholder="Phone Number"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 name="number"
               />
             </div>
-            <div class="form-control w-full max-w-xs">
-              <label class="label">
-                <span class="label-text">Quantity</span>
+            <div className="form-control w-full max-w-xs">
+              <label className="label">
+                <span className="label-text">Quantity</span>
               </label>
               <input
                 type="number"
                 placeholder="Quantity"
-                class="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs"
                 min={part.minimumQuantity}
                 max={part.availableQuantity}
                 name="quantity"
               />
             </div>
-            <input className='btn w-full btn-outline max-w-xs text-white font-bold bg-primary mt-5' value='Purchase' type="submit" />
+            <input
+              className="btn w-full btn-outline max-w-xs text-white font-bold bg-primary mt-5"
+              value="Purchase"
+              type="submit"
+            />
           </form>
         </div>
       </div>
