@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
 
 const MyOrder = () => {
 
@@ -24,6 +23,7 @@ const MyOrder = () => {
             <th>Product Name</th>
             <th>Quantity</th>
             <th>Payment</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +33,8 @@ const MyOrder = () => {
             <th>{index + 1}</th>
             <td>{order.productName}</td>
             <td>{order.quantity}</td>
-            <td><button className='btn btn-xs btn-secondary text-white'>pay</button></td>
+            <td><button className='btn btn-xs btn-primary text-white'>pay</button></td>
+            <td><button className='btn btn-xs btn-secondary text-white'>delete</button></td>
           </tr>
               </>)
           }
