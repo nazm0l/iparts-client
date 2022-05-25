@@ -1,7 +1,14 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+
   return (
     <div className="container mx-auto my-10">
       <div className="drawer drawer-mobile">

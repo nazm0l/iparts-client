@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const SinglePart = () => {
@@ -39,7 +40,9 @@ const SinglePart = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        toast.success('Order success')
+      });
     e.target.reset();
 
     const updateQuantity = parseInt(part.availableQuantity) - parseInt(quantity);

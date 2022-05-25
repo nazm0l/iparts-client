@@ -1,13 +1,40 @@
-import React, { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 
 const Users = () => {
 
-    const {data: users, isLoading} = useQuery('users',()=>fetch('http://localhost:5000/users').then(res =>res.json()))
+    const {data: users, isLoading, refetch} = useQuery('users',()=>fetch('http://localhost:5000/users',{
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res =>res.json()))
+   
     if (isLoading) {
         return <Loading></Loading>
     }
+
+    const handleMakeAdmin = (email) =>{
+        fetch(`http://localhost:5000/users/admin/${email}`,{
+            method: 'PUT',
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+        .then(res => {
+            if (res.status === 403) {
+                toast.error('Failed to make admin')
+            }
+            return res.json()})
+        .then(adminData => {
+            if (adminData.modifiedCount>0) {
+                toast.success('Make admin successfully')
+                refetch()
+            }
+        })
+    }
+
     return (
         <div className="overflow-x-auto">
       <table className="table table-compact w-full">
@@ -24,7 +51,7 @@ const Users = () => {
               <tr key={user._id}>
             <th>{index + 1}</th>
             <td>{user.email}</td>
-            <td><button className='btn btn-xs btn-primary text-white'>make admin</button></td>
+            <td>{user.role !== 'admin' && <button onClick={()=>handleMakeAdmin(user.email)} className='btn btn-xs btn-primary text-white'>make admin</button>}</td>
           </tr>)
           }
         </tbody>
