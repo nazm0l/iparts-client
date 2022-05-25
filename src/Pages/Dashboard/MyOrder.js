@@ -1,22 +1,38 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrder = () => {
 
     const [user] = useAuthState(auth);
     const [myOrders, setMyOrders] = useState([]);
+    const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userorders?email=${user.email}`)
-      .then((res) => res.json())
+    fetch(`http://localhost:5000/userorders?email=${user.email}`,{
+      method: 'GET',
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+      }
+    })
+      .then((res) => {
+
+        if (res.status === 401 || res.status === 403) {
+          signOut(auth);
+          localStorage.removeItem('accessToken');
+          navigate('/');
+        }
+
+        return res.json()})
       .then((data) => setMyOrders(data));
   }, [user]);
 
 
     return (
-        <div class="overflow-x-auto">
-      <table class="table table-compact w-full">
+        <div className="overflow-x-auto">
+      <table className="table table-compact w-full">
         <thead>
           <tr>
             <th></th>
@@ -28,15 +44,14 @@ const MyOrder = () => {
         </thead>
         <tbody>
           {
-              myOrders.map((order, index) =><>
-              <tr>
+              myOrders.map((order, index) =>
+              <tr key={order._id}>
             <th>{index + 1}</th>
             <td>{order.productName}</td>
             <td>{order.quantity}</td>
             <td><button className='btn btn-xs btn-primary text-white'>pay</button></td>
             <td><button className='btn btn-xs btn-secondary text-white'>delete</button></td>
-          </tr>
-              </>)
+          </tr>)
           }
         </tbody>
       </table>
