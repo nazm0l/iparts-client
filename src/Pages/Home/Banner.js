@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import camera from '../../Images/rear-camera.jpg'
 
 const Banner = () => {
@@ -15,7 +16,7 @@ const Banner = () => {
           <p className="py-6 font-semibold">
           You can find any types of iPhone parts in our shop. Any model of iPhone you can find all original and master copy parts.
           </p>
-          <button className='btn btn-primary'>Purchase Now</button>
+          <Link to='/shop' className='btn btn-primary'>Purchase Now</Link>
         </div>
       </div>
     </div>
