@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 
 const Users = () => {
 
-    const {data: users, isLoading, refetch} = useQuery('users',()=>fetch('http://localhost:5000/users',{
+    const {data: users, isLoading, refetch} = useQuery('users',()=>fetch('https://vast-savannah-22839.herokuapp.com/users',{
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -16,7 +16,7 @@ const Users = () => {
     }
 
     const handleMakeAdmin = (email) =>{
-        fetch(`http://localhost:5000/users/admin/${email}`,{
+        fetch(`https://vast-savannah-22839.herokuapp.com/users/admin/${email}`,{
             method: 'PUT',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

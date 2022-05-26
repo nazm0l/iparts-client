@@ -13,7 +13,7 @@ const MyProfile = () => {
     const onSubmit = data => {
         const email = user?.email;
         if (email) {
-            fetch(`http://localhost:5000/user/${email}`,{
+            fetch(`https://vast-savannah-22839.herokuapp.com/user/${email}`,{
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

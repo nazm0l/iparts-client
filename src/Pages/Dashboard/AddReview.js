@@ -10,7 +10,7 @@ const AddReview = () => {
         if (data.ratings < '0' || data.ratings > '5') {
             return toast('Input valid ratings')
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://vast-savannah-22839.herokuapp.com/reviews', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

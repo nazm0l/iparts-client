@@ -11,7 +11,7 @@ const SinglePart = () => {
   const [part, setPart] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/parts/${id}`;
+    const url = `https://vast-savannah-22839.herokuapp.com/parts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));
@@ -32,7 +32,7 @@ const SinglePart = () => {
       quantity: quantity,
     };
 
-    fetch("http://localhost:5000/orders", {
+    fetch("https://vast-savannah-22839.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -47,7 +47,7 @@ const SinglePart = () => {
 
     const updateQuantity =
       parseInt(part.availableQuantity) - parseInt(quantity);
-    const url = `http://localhost:5000/parts/${id}`;
+    const url = `https://vast-savannah-22839.herokuapp.com/parts/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

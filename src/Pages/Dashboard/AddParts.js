@@ -6,7 +6,7 @@ const AddParts = () => {
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/parts', {
+        fetch('https://vast-savannah-22839.herokuapp.com/parts', {
             method: 'POST',
             headers: {
                 "content-type": "application/json"

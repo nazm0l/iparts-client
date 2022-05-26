@@ -12,7 +12,7 @@ const MyOrder = () => {
     const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/userorders?email=${user.email}`,{
+    fetch(`https://vast-savannah-22839.herokuapp.com/userorders?email=${user.email}`,{
       method: 'GET',
       headers: {
         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const MyOrder = () => {
     const proceed = window.confirm('Are you sure?')
 
     if(proceed){
-        const url = `http://localhost:5000/userorders/${_id}`
+        const url = `https://vast-savannah-22839.herokuapp.com/userorders/${_id}`
         
         fetch(url, {
             method: 'DELETE'
