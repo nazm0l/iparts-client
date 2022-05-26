@@ -2,6 +2,7 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyOrder = () => {
@@ -29,6 +30,24 @@ const MyOrder = () => {
       .then((data) => setMyOrders(data));
   }, [user, navigate]);
 
+  const handleDelete = (_id) =>{
+    const proceed = window.confirm('Are you sure?')
+
+    if(proceed){
+        const url = `http://localhost:5000/userorders/${_id}`
+        
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            const remaining = myOrders.filter(myOrder => myOrder._id !== _id);
+            setMyOrders(remaining);
+            toast.success('Deleted Successfully')
+        })
+    }
+  }
+
 
     return (
         <div className="overflow-x-auto">
@@ -50,7 +69,7 @@ const MyOrder = () => {
             <td>{order.productName}</td>
             <td>{order.quantity}</td>
             <td><button className='btn btn-xs btn-primary text-white'>pay</button></td>
-            <td><button className='btn btn-xs btn-secondary text-white'>delete</button></td>
+            <td><button onClick={()=>handleDelete(order._id)} className='btn btn-xs btn-secondary text-white'>delete</button></td>
           </tr>)
           }
         </tbody>
