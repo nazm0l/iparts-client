@@ -24,7 +24,7 @@ const Navbar = () => {
      <Link to="/about">ABOUT</Link>
    </li>
    <li>
-     <Link to="/contact">CONTACT US</Link>
+     <Link to="/portfolio">PORTFOLIO</Link>
    </li>
    <li>
      <Link to="/blogs">BLOGS</Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-      <label for="my-drawer-2" tabIndex="1" className="btn btn-ghost lg:hidden">
+      <label htmlFor="my-drawer-2" tabIndex="1" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
