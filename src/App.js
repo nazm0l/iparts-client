@@ -19,7 +19,6 @@ import AddParts from "./Pages/Dashboard/AddParts";
 import AllOrders from "./Pages/Dashboard/AllOrders";
 import Users from "./Pages/Dashboard/Users";
 import { ToastContainer} from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {

@@ -27,7 +27,7 @@ const MyOrder = () => {
 
         return res.json()})
       .then((data) => setMyOrders(data));
-  }, [user]);
+  }, [user, navigate]);
 
 
     return (

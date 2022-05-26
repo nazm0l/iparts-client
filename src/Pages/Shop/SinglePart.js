@@ -41,11 +41,12 @@ const SinglePart = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        toast.success('Order success')
+        toast.success("Order success");
       });
     e.target.reset();
 
-    const updateQuantity = parseInt(part.availableQuantity) - parseInt(quantity);
+    const updateQuantity =
+      parseInt(part.availableQuantity) - parseInt(quantity);
     const url = `http://localhost:5000/parts/${id}`;
     fetch(url, {
       method: "PUT",
@@ -61,14 +62,18 @@ const SinglePart = () => {
   return (
     <div className="container mx-auto mt-10 grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 gap-10 my-20">
       <div>
-          <h2 className="text-2xl text-center mb-5">Product Details</h2>
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <h2 className="text-2xl text-center mb-5 font-bold">Product Details</h2>
+        <div className="card w-full bg-base-100 shadow-xl py-5">
           <figure>
-            <img src={part.picture} alt="parts" />
+            <img
+              src={part.picture}
+              alt="parts"
+              className="w-[200px]"
+            />
           </figure>
-          <div className="card-body">
-            <h2 className="card-title">{part.name}</h2>
-            <p>{part.description}</p>
+          <div className="text-center">
+            <h2 className="text-center text-2xl font-bold my-5">{part.name}</h2>
+            <p className="mb-5">{part.description}</p>
             <p>
               <span className="font-semibold">Price:</span> {part.price}
             </p>
@@ -84,7 +89,7 @@ const SinglePart = () => {
         </div>
       </div>
       <div className="mx-auto">
-        <h2 className="text-2xl text-center mb-5">Order Details</h2>
+        <h2 className="text-2xl text-center mb-5 font-bold">Order Details</h2>
         <div className="">
           <form onSubmit={handlePurchase}>
             <div className="form-control w-full max-w-xs">
