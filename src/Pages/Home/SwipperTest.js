@@ -35,7 +35,7 @@ const SwipperTest = () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{review.ratings}</h2>
+                  <h2 className="card-title">Ratings: {review.ratings}</h2>
                   <p>{review.description}</p>
                 </div>
               </div>

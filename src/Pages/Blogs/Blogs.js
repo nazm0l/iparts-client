@@ -5,7 +5,8 @@ const Blogs = () => {
         <div className='container mx-auto my-10'>
             <h2 className='text-2xl font-bold text-center'>Blogs</h2>
             <div className="divider"></div>
-            <div className='bg-cyan-100 p-10 rounded-2xl'>
+            <h2 className="text-3xl flex justify-center h-[500px] items-center">This page under construction</h2>
+            {/* <div className='bg-cyan-100 p-10 rounded-2xl'>
                 <h2 className='text-2xl mb-3'>Q: How will you improve the performance of a React Application?</h2>
                 <p>Ans: A second delay in load time can cause a 7 percent reduction in conversions, making it imperative for developers to create apps with optimized performance. And aslo : Lazy loading images in React, Windowing or list virtualization in React, Keeping component state local where necessary. </p>
             </div>
@@ -24,7 +25,7 @@ const Blogs = () => {
             <div className='bg-cyan-100 p-10 rounded-2xl my-4'>
                 <h2 className='text-2xl mb-3'>Q:  What is a unit test? Why should write unit tests?</h2>
                 <p>Ans: Unit tests are typically automated tests written and run by software developers to ensure that a section of an application (known as the "unit") meets its design and behaves as intended. In procedural programming, a unit could be an entire module, but it is more commonly an individual function or procedure.</p>
-            </div>
+            </div> */}
         </div>
     );
 };

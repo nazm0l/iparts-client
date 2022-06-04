@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import SwipperTest from "./SwipperTest";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -12,7 +13,7 @@ const Reviews = () => {
   }, []);
 
   return (
-    <div className="my-10 bg-gray-100 py-5 px-5 rounded-lg">
+    <div className="my-10 bg-gray-100 py-10 px-5 rounded-lg">
       <h2 className="text-3xl font-bold text-center">Reviews</h2>
       <div className="divider"></div>
 
@@ -26,6 +27,7 @@ const Reviews = () => {
           </div>
         ))}
       </div>
+      <SwipperTest />
     </div>
   );
 };

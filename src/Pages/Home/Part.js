@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
 
 const Part = ({ part }) => {
   const {
@@ -19,11 +20,13 @@ const Part = ({ part }) => {
   }
 
   return (
-    <div className="card lg:card-side bg-base-100 shadow-xl">
+    <motion.div initial={{x:-50, opacity:0.5}} animate={{x:0, opacity:1}} transition={{ duration: 0.5 }} className="card lg:card-side bg-base-100 shadow-xl">
       <figure>
-        <img
+        <motion.img
+          whileHover={{ scale: 1.1 }}
           src={picture}
           alt="parts"
+          className="pl-5 w-[200px]"
         />
       </figure>
       <div className="card-body">
@@ -36,7 +39,7 @@ const Part = ({ part }) => {
           <button onClick={()=>purchaseParts(_id)} className="btn btn-sm btn-primary">Purchase</button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

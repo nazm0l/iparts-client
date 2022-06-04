@@ -20,7 +20,6 @@ import AllOrders from "./Pages/Dashboard/AllOrders";
 import Users from "./Pages/Dashboard/Users";
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Portfolio from "./Portfolio/Portfolio";
 import ResetPass from "./Pages/Login/ResetPass";
 import Payment from "./Pages/Dashboard/Payment";
 
@@ -33,7 +32,6 @@ function App() {
         <Route path="shop" element={<Shop />} />
         <Route path="shop/:id" element={<RequireAuth><SinglePart /></RequireAuth>} />
         <Route path="blogs" element={<Blogs />} />
-        <Route path="portfolio" element={<Portfolio />} />
         <Route path="about" element={<About />} />
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<AllOrders />}></Route>
