@@ -27,7 +27,6 @@ const Reviews = () => {
           </div>
         ))}
       </div>
-      <SwipperTest />
     </div>
   );
 };

@@ -9,7 +9,7 @@ const Summary = () => {
         <div className='my-10'>
             <h2 className="text-3xl font-bold text-center">Business Summary</h2>
             <div className="divider"></div>
-            <div className='bg-secondary py-7 px-10 rounded-xl'>
+            <div className='bg-secondary py-7 px-10 rounded-xl h-[400px]'>
             <h1 className="xl:text-4xl md:text-3xl text-2xl font-semibold leading-tight text-center text-white mb-12">
                     More Than 17 Years We Provide Service <br className="md:block hidden" />
                     in Parts Industry

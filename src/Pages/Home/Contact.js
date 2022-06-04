@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
     return (
         <div>
-            <h2 className='text-xl font-bold text-center'>Want to know our latest offer?</h2>
+            <h2 className='text-xl font-bold text-center lg:text-left'>Want to know our latest offer?</h2>
             <div className="p-6 container md:w-2/3 xl:w-auto mx-auto  flex flex-col xl:items-stretch justify-between xl:flex-row">
                 <div className="xl:w-1/2 md:mb-14 xl:mb-0 relative h-auto flex items-center justify-center">
                     <img src="https://cdn.tuk.dev/assets/components/26May-update/newsletter-1.png" alt="newsletter" className="h-full xl:w-full lg:w-1/2 w-full " />
