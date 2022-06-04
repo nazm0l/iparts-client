@@ -30,6 +30,7 @@ const SinglePart = () => {
       address: address,
       number: number,
       quantity: quantity,
+      totalPrice: part.price * quantity
     };
 
     fetch("https://vast-savannah-22839.herokuapp.com/orders", {

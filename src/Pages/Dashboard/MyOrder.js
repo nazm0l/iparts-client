@@ -48,6 +48,10 @@ const MyOrder = () => {
     }
   }
 
+  const handlePay = (_id) =>{
+    navigate(`payment/${_id}`)
+  }
+
 
     return (
         <div className="overflow-x-auto">
@@ -57,6 +61,7 @@ const MyOrder = () => {
             <th></th>
             <th>Product Name</th>
             <th>Quantity</th>
+            <th>Total Price</th>
             <th>Payment</th>
             <th>Action</th>
           </tr>
@@ -68,7 +73,8 @@ const MyOrder = () => {
             <th>{index + 1}</th>
             <td>{order.productName}</td>
             <td>{order.quantity}</td>
-            <td><button className='btn btn-xs btn-primary text-white'>pay</button></td>
+            <td>${order.totalPrice}</td>
+            <td>{order.totalPrice && <button onClick={() => handlePay(order._id)} className='btn btn-xs btn-primary text-white'>pay</button>}</td>
             <td><button onClick={()=>handleDelete(order._id)} className='btn btn-xs btn-secondary text-white'>delete</button></td>
           </tr>)
           }

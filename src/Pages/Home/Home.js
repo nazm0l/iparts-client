@@ -4,6 +4,7 @@ import Parts from './Parts'
 import Summary from './Summary'
 import Reviews from './Reviews'
 import Contact from './Contact';
+import SwipperTest from './SwipperTest';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner />
             <Parts />
             <Summary />
+            <SwipperTest />
             <Reviews />
             <Contact />
         </div>

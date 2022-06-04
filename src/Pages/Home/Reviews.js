@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -15,7 +17,7 @@ const Reviews = () => {
       <div className="divider"></div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 my-10">
-        {reviews.slice(0, 3).map((review) => (
+        {reviews.slice(0, 3).map((review, index) => (
           <div class="card w-96 bg-base-100 shadow-xl text-center">
             <div class="card-body">
               <h2 class="text-2xl font-bold"> Ratings: {review.ratings}</h2>

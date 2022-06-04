@@ -4,7 +4,7 @@ import camera from '../../Images/rear-camera.jpg'
 
 const Banner = () => {
     return (
-        <div className="hero my-10 lg:my-20">
+        <div style={{background: `url(https://img.freepik.com/free-vector/stylish-white-background-with-diagonal-lines_1017-33199.jpg?t=st=1654268805~exp=1654269405~hmac=4e7a70217142859dc71c5f84bf46d2b9c452444d7326c31b876c5b2e0f5593f2&w=1480)`}} className="hero my-10 lg:my-10">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={camera}
