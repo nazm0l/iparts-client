@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 import SwipperTest from "./SwipperTest";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch("https://vast-savannah-22839.herokuapp.com/reviews")
+    fetch("https://iparts-server.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

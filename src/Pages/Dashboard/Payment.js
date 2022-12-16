@@ -11,7 +11,7 @@
 //   const [order, setOrder] = useState({});
 
 //   useEffect(() => {
-//     const url = `https://vast-savannah-22839.herokuapp.com/userorders/${_id}`;
+//     const url = `https://iparts-server.vercel.app/userorders/${_id}`;
 //     fetch(url)
 //       .then((res) => res.json())
 //       .then((data) => setOrder(data));

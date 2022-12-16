@@ -5,7 +5,7 @@
 //   useEffect(() => {
 //     const email = user?.email;
 //     if (email) {
-//       fetch(`https://vast-savannah-22839.herokuapp.com/admin/${email}`, {
+//       fetch(`https://iparts-server.vercel.app/admin/${email}`, {
 //         method: "GET",
 //         headers: {
 //           authorization: `Bearer ${localStorage.getItem("accessToken")}`,

@@ -11,7 +11,7 @@ const SinglePart = () => {
   const [part, setPart] = useState({});
 
   useEffect(() => {
-    const url = `https://vast-savannah-22839.herokuapp.com/parts/${id}`;
+    const url = `https://iparts-server.vercel.app/parts/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setPart(data));
@@ -30,10 +30,10 @@ const SinglePart = () => {
       address: address,
       number: number,
       quantity: quantity,
-      totalPrice: part.price * quantity
+      totalPrice: part.price * quantity,
     };
 
-    fetch("https://vast-savannah-22839.herokuapp.com/orders", {
+    fetch("https://iparts-server.vercel.app/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,7 @@ const SinglePart = () => {
 
     const updateQuantity =
       parseInt(part.availableQuantity) - parseInt(quantity);
-    const url = `https://vast-savannah-22839.herokuapp.com/parts/${id}`;
+    const url = `https://iparts-server.vercel.app/parts/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -66,11 +66,7 @@ const SinglePart = () => {
         <h2 className="text-2xl text-center mb-5 font-bold">Product Details</h2>
         <div className="card w-full bg-base-100 shadow-xl py-5">
           <figure>
-            <img
-              src={part.picture}
-              alt="parts"
-              className="w-[200px]"
-            />
+            <img src={part.picture} alt="parts" className="w-[200px]" />
           </figure>
           <div className="text-center">
             <h2 className="text-center text-2xl font-bold my-5">{part.name}</h2>

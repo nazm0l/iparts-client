@@ -4,7 +4,7 @@ const AllOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch("https://vast-savannah-22839.herokuapp.com/orders")
+    fetch("https://iparts-server.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
@@ -24,18 +24,17 @@ const AllOrders = () => {
           </tr>
         </thead>
         <tbody>
-          {
-              orders.map((order, index) =>
-              <tr key={order._id}>
-            <th>{index + 1}</th>
-            <td>{order.name}</td>
-            <td>{order.productName}</td>
-            <td>{order.address}</td>
-            <td>{order.number}</td>
-            <td>{order.email}</td>
-            <td>{order.quantity}</td>
-          </tr>)
-          }
+          {orders.map((order, index) => (
+            <tr key={order._id}>
+              <th>{index + 1}</th>
+              <td>{order.name}</td>
+              <td>{order.productName}</td>
+              <td>{order.address}</td>
+              <td>{order.number}</td>
+              <td>{order.email}</td>
+              <td>{order.quantity}</td>
+            </tr>
+          ))}
         </tbody>
         <tfoot>
           <tr>
